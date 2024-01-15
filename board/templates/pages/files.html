@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}{{request.path}}{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+    <ul>
+        {% for file in files %}
+        <li>
+            <a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">
+                {{ (request.path.split('/')[0] + '/' if request.path != '/' else '') + file }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
