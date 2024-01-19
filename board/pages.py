@@ -1,15 +1,11 @@
-from flask import Blueprint, render_template, abort, send_file
+from flask import Blueprint, render_template, abort, send_file, redirect, url_for
 import os
 
 bp = Blueprint("pages", __name__)
 
 @bp.route("/")
 def home():
-    return render_template("pages/home.html")
-
-@bp.route("/about")
-def about():
-    return render_template("pages/about.html")
+    return redirect(url_for('pages.dir_listing'))
 
 @bp.route('/files', defaults={'req_path': ''})
 @bp.route('/files/<path:req_path>')

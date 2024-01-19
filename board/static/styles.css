@@ -8,6 +8,10 @@
     margin: 0 auto;
     text-align: center;
   }
+
+  a {
+    text-decoration: none;
+  }
   
   a,
   a:visited {
@@ -31,4 +35,8 @@
   main {
     width: 80%;
     margin: 0 auto;
+  }
+
+  .crossed {
+    text-decoration: line-through;
   }
