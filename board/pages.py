@@ -15,6 +15,7 @@ def dir_listing(req_path):
 
     # Joining the base and the requested path
     abs_path = os.path.join(BASE_DIR, req_path)
+    print(abs_path)
 
     # Return 404 if path doesn't exist
     if not os.path.exists(abs_path):
@@ -22,7 +23,7 @@ def dir_listing(req_path):
 
     # Check if path is a file and serve
     if os.path.isfile(abs_path):
-        return send_file(abs_path)
+        return send_file(os.path.abspath(abs_path))
 
     # Show directory contents
     files = sorted(os.listdir(abs_path))
