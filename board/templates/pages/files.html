@@ -5,7 +5,7 @@
 {% endblock header %}
 
 {% block content %}
-    <ul>
+    <ul class="no-bullets">
         {% for file in files %}
         <li>
             <a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">

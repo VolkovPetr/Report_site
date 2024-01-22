@@ -31,6 +31,12 @@
     display: inline;
     margin: 0 5px;
   }
+
+  ul.no-bullets {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
   
   main {
     width: 80%;
