@@ -5,13 +5,24 @@
 {% endblock header %}
 
 {% block content %}
-    <ul class="no-bullets">
-        {% for file in files %}
-        <li>
-            <a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">
-                {{ (request.path.split('/')[0] + '/' if request.path != '/' else '') + file }}
-            </a>
-        </li>
+    <table>
+        {% for file, is_dir in files|zip(files_is_dirs) %}
+        <tr>
+            <td>
+                <a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">
+                    {{ (request.path.split('/')[0] + '/' if request.path != '/' else '') + file }}
+                </a>
+            </td>
+            {% if is_dir %}
+            <td>
+                <button>to zip</button>
+            </td>
+            {% elif '.zip' in file %}
+            <td>
+                <button class="unzip">unzip</button>
+            </td>
+            {% endif %} 
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 {% endblock content %}

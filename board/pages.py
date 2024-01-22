@@ -27,4 +27,7 @@ def dir_listing(req_path):
 
     # Show directory contents
     files = sorted(os.listdir(abs_path))
-    return render_template('pages/files.html', files=files)
+    files_is_dirs = [os.path.isdir(abs_path + file) for file in files]
+    print(files)
+    print(files_is_dirs)
+    return render_template('pages/files.html', files=files, files_is_dirs=files_is_dirs, zip=zip)
