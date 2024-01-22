@@ -99,3 +99,8 @@ button:active {
 button.unzip {
   background-color: #165126;
 }
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
