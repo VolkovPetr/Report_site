@@ -8,8 +8,8 @@
     <table>
         {% for file, is_dir in files|zip(files_is_dirs) %}
         <tr>
-            <td>
-                <a href="{{ (request.path + '/' if request.path != '/' else '') + file }}">
+            <td class="files">
+                <a class="files" href="{{ (request.path + '/' if request.path != '/' else '') + file }}">
                     {{ (request.path.split('/')[0] + '/' if request.path != '/' else '') + file }}
                 </a>
             </td>
@@ -22,6 +22,9 @@
                 <button class="unzip">unzip</button>
             </td>
             {% endif %} 
+            <td>
+                <button class="delete">delete</button>
+            </td>
         </tr>
         {% endfor %}
     </table>
